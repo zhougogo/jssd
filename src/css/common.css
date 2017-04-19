@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* RESET */
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input,abbr,article,aside,command,details,figcaption,figure,footer,header,hgroup,mark,meter,nav,output,progress,section,summary,time { margin: 0; padding: 0; }
+img { border: 0 none; vertical-align: top; -ms-interpolation-mode:bicubic;/*-webkit-touch-callout:none; 禁止用户保存图片*/ }
+ul, li { list-style-type: none; }
+h1, h2, h3, h4, h5, h6 { font-size: 1.4rem; /*1.4 × 10px = 14px */ /*-webkit-user-select:none; 禁止用户选中文字*/ font-weight:normal; }
+input, select, button, textarea { font-size: 1.2rem; font-style: normal;}
+button { cursor: pointer; }
+i, em, cite { font-style: normal; }
+a, a:link { text-decoration: none; -webkit-touch-callout:none; -webkit-tap-highlight-color:rgba(255,255,255,0);color:inherit; /*禁止用户iPhone打开新页面*/ }
+a:visited { }
+a:active, a:hover { text-decoration: none; }
+a:focus { outline: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+input, select, button, textarea { outline:none; vertical-align: baseline; -webkit-appearance: none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-user-modify: read-write-plaintext-only;} /*去掉手持设备点击时出现的透明层,小米设备还是有问题*/
+
+/*转屏*/
+.mobile-orientation{display:none;position:fixed;top:0;left:0;z-index:99998;height:100%;width:100%;background:#000;}
+.mobile-orientation img{display:block;position: relative;margin:auto;height:50%;top:25%;width:auto;}
+
+.no-select{-webkit-user-select:none; /* 禁止用户选中文字 */}
+.no-touch{-webkit-touch-callout:none;/* 禁止用户保存图片 */ }
+
+/* custom common */
+.hidden{
+    display: none;
+}
+.opacity{
+    opacity:0;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+.abs{
+    position: absolute;
+    top:0;
+    left:0;
+}
+.abs-full{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.rel{
+    position: relative;
+}
+.rel-full{
+    position: relative;
+    width:100%;
+    height:100%;
+}
+.border-box{
+    box-sizing: border-box;
+}
+.clear{
+    clear:both;
+}
+.overflow{
+    overflow: hidden;
+}
+.bold{
+    font-weight: bolder;
+}
+.tx-center{
+    text-align: center;
+}
+.tx-right{
+    text-align: right;
+}
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.animal{
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+.pause div{
+    animation-play-state:paused!important;
+}
+.pause{
+    animation-play-state:paused!important;
+}
+.slide-left{
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+}
+.slide-top{
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+}
+.slide-right{
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+.slide-bot{
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+}
+.abs-center{
+    position: absolute;
+    top:50%;
+    left:50%;
+}

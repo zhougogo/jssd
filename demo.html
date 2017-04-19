@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+</head>
+<body>
+	<div id="view-container" class="main-wrap abs-full hidden" style="display: block;">
+        <div class="view hidden animal" id="ugc_begin">
+            <img class="i-start" src="/res/css/photocat/i-start.png" ctlid="i-start" />
+            <input type="file" id="ugc_file2" class="i-start-btn" accept="image/*" capture="camera" onfocus="this.blur()" />
+        </div>
+        <div class="view hidden animal" id="ugc_choseimg">
+            <img class="i-sure" src="/res/css/photocat/i-sure.png" />
+            <div class="btnarea-sure">
+                <a ctlid="i-restart" evt:click="start_click">重新拍照</a>
+                <a ctlid="i-nextgender" evt:click="nextgender_click">下一步</a>
+            </div>
+        </div>
+        <div class="view hidden animal" id="ugc_chosegender">
+            <img class="i-sure" src="/res/css/photocat/i-foot-logo.png" />
+            <div class="gender hidden">
+                <img src="/res/css/photocat/i-male.png" title="男" ctlid="img_malex" evt:click="gender_click" />
+                <img src="/res/css/photocat/i-female.png" title="女" ctlid="img_femalex" evt:click="gender_click" />
+
+            </div>
+            <div class="gender-icon">
+                <img src="/res/css/photocat/i-male-icon.png" title="男" ctlid="img_male" evt:click="gender_click" />
+                <img src="/res/css/photocat/i-female-icon.png" title="女" ctlid="img_female" evt:click="gender_click" />
+
+            </div>
+        </div>
+        <div class="view hidden animal" id="ugc_pretty">
+            <img class="i-sure" src="/res/css/photocat/i-foot-logo.png" />
+            <img class="i-share-btn" ctlid="i-finish" evt:click="finish_click" src="/res/css/photocat/i-share.png" />
+        </div>
+        <div class="view hidden animal" id="ugc_final">
+            <img ctlid="img_final" width="100%" height="100%" />
+            <img class="i-sure" src="/res/css/photocat/i-foot-logo.png" />
+            <img class="i-again-btn" src="/res/css/photocat/i-again.png" ctlid="i-again" evt:click="start_click" />
+        </div>
+        <div class="view hidden animal" id="ugc_invite">
+            <img ctlid="img_invite" width="100%" height="100%" />
+            <img class="i-sure" src="/res/css/photocat/i-foot-logo.png" />
+            <img class="i-ido-btn" src="/res/css/photocat/i-ido.png" ctlid="i-ido" evt:click="pop_click" />
+        </div>
+        <div class="view hidden animal" id="ugc_join" style="background-color: white;">
+            <div style="position:absolute;width:100%;text-align:center;top:30%;">
+                <img src="/res/css/photocat/howtojoin.png" width="80%" />
+            </div>
+            <img class="i-sure" src="/res/css/photocat/i-foot-logo.png" />
+        </div>
+        <div class="view hidden animal" id="ugc_shareok" style="background-color: white;">
+            <div style="position:absolute;width:100%;text-align:center;top:30%;">
+                <img src="/res/css/photocat/shareok.png" width="80%" />
+            </div>
+            <img class="i-sure" src="/res/css/photocat/i-foot-logo.png" />
+            <img class="i-again-btn" src="/res/css/photocat/i-again.png" style="bottom: 40%;left: 25%;" ctlid="i-again" evt:click="start_click" />
+        </div>
+        <div id="for-hidden" style="display:none;">
+            <div class="view hidden animal" id="ugc_index" style="visibility: hidden;z-index: -1">
+                <img src="src/img/ugc/logo.png" class="ugc-i-logo abs-center">
+                <img src="src/img/ugc/i-tit.png" class="ugc-i-tit abs-center">
+                <div class="ugc-i-pointer abs-center" data-ga="18">
+                    <input type="file" id="ugc-file" target="2" accept="image/*" capture="camera">
+                </div>
+                <img src="src/img/ugc/i-msg.png" class="ugc-msg abs-center">
+            </div>
+            <div class="view hidden animal" id="ugc_upload">
+                <div class="ugc-part1 hidden">
+                    <img src="src/img/ugc/i-tit.png" class="ugc-u-tit abs-center">
+                    <img src="src/img/ugc/upload-logo.png" class="ugc-u-logo abs-center">
+                    <div class="ugc-u-border abs-center">
+                        <canvas id="ugc-clip"></canvas>
+                        <img src="" class="ugc-u-border-img">
+                    </div>
+                    <img src="src/img/ugc/upload-msg.png" class="ugc-u-msg abs-center">
+                    <img src="src/img/ugc/upload-btn1.png" class="ugc-u-btn1 abs-center" data-ga="20">
+                    <img src="src/img/ugc/upload-btn2.png" class="ugc-u-btn2 abs-center" data-ga="19">
+                    <img src="" id="resImg" class="hidden">
+                </div>
+                <div class="ugc-part2 hidden">
+                    <img src="src/img/ugc/i-tit.png" class="ugc-u-tit abs-center">
+                    <img src="src/img/ugc/upload-logo.png" class="ugc-u-logo abs-center">
+                    <div class="ugc-u-border abs-center">
+                        <canvas id="edit-canvas" width="610" height="345"></canvas>
+                        <img src="" class="ugc-u-border-img">
+                        <canvas id="merge-canvas" width="630" height="437" class="hidden"></canvas>
+                    </div>
+                    <div class="ugc-ele-container" data-ga="21">
+                        <div class="ugc-ele ele1" sid="ele1"></div>
+                        <div class="ugc-ele ele2" sid="ele2"></div>
+                        <div class="ugc-ele ele3" sid="ele3"></div>
+                        <div class="ugc-ele ele4" sid="ele4"></div>
+                        <div class="ugc-ele ele5" sid="ele5"></div>
+                        <div class="ugc-ele ele6" sid="ele6"></div>
+                    </div>
+                    <img src="src/img/ugc/edit-cancel.png" class="abs-center ugc-edit-cancel" data-ga="23">
+                    <img src="src/img/ugc/edit-generate.png" class="abs-center ugc-edit-generate" data-ga="22">
+                    <div class="ugc-model-btn ugc-model1" model="1">
+                        <img src="src/img/ugc/edit-border.png">
+                    </div>
+                    <div class="ugc-model-btn ugc-model2 selected" model="2">
+                        <img src="src/img/ugc/edit-border.png">
+                    </div>
+                    <img src="src/img/deleteBtn.png" id="deleteIcon" class="hidden">
+                </div>
+            </div>
+            <div class="view hidden animal" id="ugc_share">
+                <img src="src/img/ugc/i-tit.png" class="ugc-u-tit abs-center">
+                <img src="src/img/ugc/upload-logo.png" class="ugc-u-logo abs-center">
+                <div class="ugc-u-border abs-center">
+                    <img id="ugc-share-img">
+                </div>
+                <img src="src/img/ugc/ugc-share-msg.png" class="abs-center ugc-share-msg">
+                <img src="src/img/ugc/ugc-shareBtn.png" class="abs-center ugc-share-btn" data-ga="24">
+                <img src="src/img/ugc/ugc-againBtn.png" class="abs-center ugc-again-btn" data-ga="25">
+            </div>
+        </div>
+        <div class="pop hidden" id="map"><div class="pop-cube"><img src="src/img/close.png" class="closeBtn"><img src="src/img/map.png" class="map-image abs-center"></div></div>
+        <div class="pop hidden" id="share"><img src="/res/css/photocat/sharetip.png" class="share-label"></div><div class="pop hidden" id="trade-success"><div class="pop-cube"><img src="src/img/close.png" class="closeBtn"><img src="src/img/trade-success.png" class="trade-img"></div></div><div class="pop hidden" id="trade-more"><div class="pop-cube"><img src="src/img/close.png" class="closeBtn"><img src="src/img/act-msg.png" class="trade-more"></div></div><div class="pop hidden" id="trade-fail"><div class="pop-cube"><img src="src/img/close.png" class="closeBtn"><img src="src/img/trade-sorry.png" class="trade-sorry"></div></div><div class="pop hidden" id="rule"><div class="pop-cube"><img src="src/img/close.png" class="closeBtn"><img src="src/img/rol.png" class="rule-pane"></div></div><div class="pop hidden" id="loader"><div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div></div><div class="view hidden animal" id="photo_back"><img src="src/img/ugc/i-tit.png" class="ugc-u-tit abs-center"><img src="src/img/ugc/upload-logo.png" class="ugc-u-logo abs-center"><div class="ugc-u-border abs-center"><img id="back-image"></div><img src="src/img/ugc/toDIYbtn.png" class="abs-center ugc-diy-btn" data-ga="36"></div>
+    </div>
+</body>
+</html>
